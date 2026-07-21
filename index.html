@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pape Mamadou Diop - Cybersécurité</title>
+    <meta name="description" content="Portfolio de Pape Mamadou Diop, étudiant en Cybersécurité et Réseaux à Groupe ISI, Dakar. Recherche de stage." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: #0a0e1a;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        /* === ANIMATION FOND CYBERSÉCURITÉ === */
+        #matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            background: radial-gradient(ellipse at center, #0a0e1a 0%, #060810 100%);
+        }
+
+        #matrix-bg canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        .glow-line {
+            position: absolute;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00ff41, transparent);
+            animation: scanLine 8s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes scanLine {
+            0% {
+                top: 0%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        /* === GLITCH EFFECT === */
+        .glitch-text {
+            position: relative;
+            text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+
+        .glitch-text:hover::before {
+            animation: glitch1 0.3s ease-in-out;
+            opacity: 0.8;
+            color: #00ff41;
+            clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
+        }
+
+        .glitch-text:hover::after {
+            animation: glitch2 0.3s ease-in-out 0.1s;
+            opacity: 0.8;
+            color: #ff0040;
+            clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%);
+        }
+
+        @keyframes glitch1 {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-5px, 2px);
+            }
+            40% {
+                transform: translate(5px, -2px);
+            }
+            60% {
+                transform: translate(-3px, 1px);
+            }
+            80% {
+                transform: translate(3px, -1px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        @keyframes glitch2 {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(5px, -2px);
+            }
+            40% {
+                transform: translate(-5px, 2px);
+            }
+            60% {
+                transform: translate(3px, -1px);
+            }
+            80% {
+                transform: translate(-3px, 1px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        /* === TYPOGRAPHIE === */
+        h1,
+        h2,
+        h3,
+        .font-tech {
+            font-family: 'Orbitron', monospace;
+        }
+
+        .text-green-glow {
+            color: #00ff41;
+            text-shadow: 0 0 20px rgba(0, 255, 65, 0.5), 0 0 60px rgba(0, 255, 65, 0.2);
+        }
+
+        /* === HEADER === */
+        header {
+            background: rgba(10, 14, 26, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 255, 65, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            padding: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(10, 14, 26, 0.98);
+            border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 1px;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #00ff41;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover {
+            color: #00ff41;
+        }
+
+        .nav-link:hover::before {
+            width: 80%;
+        }
+
+        /* === HERO === */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            padding-top: 80px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            color: #00ff41;
+            letter-spacing: 2px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background: #00ff41;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .profile-ring {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 3px solid rgba(0, 255, 65, 0.3);
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-ring::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: #00ff41;
+            animation: spin 4s linear infinite;
+        }
+
+        .profile-ring::after {
+            content: '';
+            position: absolute;
+            inset: -15px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-bottom-color: #00ff41;
+            animation: spin 4s linear infinite reverse;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .profile-ring .avatar {
+            width: 90%;
+            height: 90%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0a0e1a, #1a2a1a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            border: 2px solid rgba(0, 255, 65, 0.2);
+        }
+
+        /* === SECTIONS === */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #00ff41;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+        }
+
+        .section-title .number {
+            color: #00ff41;
+            font-size: 1.2rem;
+            margin-right: 10px;
+            opacity: 0.5;
+        }
+
+        /* === CARDS === */
+        .card-glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 65, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-glass::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(0, 255, 65, 0.03), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .card-glass:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 255, 65, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-glass:hover::before {
+            opacity: 1;
+        }
+
+        .card-glass .icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: rgba(0, 255, 65, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #00ff41;
+            margin-bottom: 20px;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+
+        /* === SKILL BARS === */
+        .skill-bar-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            height: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 255, 65, 0.1);
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff41, #00cc33);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%;
+        }
+
+        /* === PROJECTS === */
+        .project-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 600;
+            background: rgba(0, 255, 65, 0.1);
+            color: #00ff41;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            margin: 4px;
+            letter-spacing: 0.5px;
+            font-family: 'Orbitron', monospace;
+        }
+
+        /* === CONTACT === */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 18px 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 65, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: rgba(0, 255, 65, 0.3);
+            background: rgba(0, 255, 65, 0.05);
+            transform: translateX(10px);
+        }
+
+        .contact-item .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(0, 255, 65, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #00ff41;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 65, 0.15);
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: 'Rajdhani', sans-serif;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #00ff41;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.1);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .form-input.error {
+            border-color: #ff0040;
+            box-shadow: 0 0 30px rgba(255, 0, 64, 0.2);
+        }
+
+        .form-input.success {
+            border-color: #00ff41;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.2);
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #00ff41, #00cc33);
+            color: #0a0e1a;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: 'Orbitron', monospace;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 255, 65, 0.3);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 40px;
+            background: transparent;
+            color: #00ff41;
+            font-weight: 700;
+            border: 2px solid #00ff41;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: 'Orbitron', monospace;
+            letter-spacing: 1px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 255, 65, 0.1);
+            box-shadow: 0 0 40px rgba(0, 255, 65, 0.1);
+            transform: scale(1.05);
+        }
+
+        /* === TERMINAL EFFECT === */
+        .terminal-box {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #00ff41;
+            overflow: hidden;
+        }
+
+        .terminal-box .line {
+            opacity: 0;
+            animation: typeIn 0.5s ease forwards;
+        }
+
+        .terminal-box .line:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        .terminal-box .line:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        .terminal-box .line:nth-child(3) {
+            animation-delay: 0.7s;
+        }
+        .terminal-box .line:nth-child(4) {
+            animation-delay: 1.0s;
+        }
+        .terminal-box .line:nth-child(5) {
+            animation-delay: 1.3s;
+        }
+
+        @keyframes typeIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* === STATS === */
+        .stat-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 3rem;
+            color: #00ff41;
+            text-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+        }
+
+        /* === TOAST NOTIFICATION === */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 16px 24px;
+            border-radius: 12px;
+            background: rgba(10, 14, 26, 0.95);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
+            z-index: 1000;
+            transform: translateX(120%);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 400px;
+            backdrop-filter: blur(20px);
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            border-color: #00ff41;
+        }
+
+        .toast.error {
+            border-color: #ff0040;
+        }
+
+        .toast .toast-icon {
+            margin-right: 12px;
+            font-size: 20px;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block !important;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .profile-ring {
+                width: 200px;
+                height: 200px;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .skill-grid {
+                grid-template-columns: 1fr;
+            }
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-menu-btn {
+                display: none !important;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            padding: 20px 0;
+            border-top: 1px solid rgba(0, 255, 65, 0.1);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: color 0.3s ease;
+            font-weight: 600;
+        }
+
+        .mobile-menu a:hover {
+            color: #00ff41;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            background: #0a0e1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00ff41;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0e1a;
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(0, 255, 65, 0.3);
+            border-top-color: #00ff41;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- === MATRIX BACKGROUND === -->
+    <div id="matrix-bg">
+        <canvas id="matrixCanvas"></canvas>
+        <div class="glow-line" style="left:10%; animation-delay:0s;"></div>
+        <div class="glow-line" style="left:30%; animation-delay:2s;"></div>
+        <div class="glow-line" style="left:50%; animation-delay:4s;"></div>
+        <div class="glow-line" style="left:70%; animation-delay:1s;"></div>
+        <div class="glow-line" style="left:90%; animation-delay:3s;"></div>
+    </div>
+
+    <!-- === TOAST NOTIFICATION === -->
+    <div class="toast" id="toast">
+        <span class="toast-icon" id="toastIcon">✅</span>
+        <span id="toastMessage">Message envoyé avec succès !</span>
+    </div>
+
+    <!-- === HEADER === -->
+    <header id="header">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-green-glow font-tech text-2xl font-bold">&lt;/&gt;</span>
+                <span class="text-white font-tech text-lg hidden sm:block">PMD</span>
+            </div>
+
+            <nav class="nav-links flex gap-2">
+                <a href="#hero" class="nav-link">ACCUEIL</a>
+                <a href="#about" class="nav-link">À PROPOS</a>
+                <a href="#skills" class="nav-link">COMPÉTENCES</a>
+                <a href="#projects" class="nav-link">PROJETS</a>
+                <a href="#certifications" class="nav-link">CERTIFICATIONS</a>
+                <a href="#education" class="nav-link">FORMATION</a>
+                <a href="#contact" class="nav-link">CONTACT</a>
+            </nav>
+
+            <button class="mobile-menu-btn text-white text-2xl" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div class="mobile-menu container mx-auto px-4" id="mobileMenu">
+            <a href="#hero" onclick="closeMenu()">ACCUEIL</a>
+            <a href="#about" onclick="closeMenu()">À PROPOS</a>
+            <a href="#skills" onclick="closeMenu()">COMPÉTENCES</a>
+            <a href="#projects" onclick="closeMenu()">PROJETS</a>
+            <a href="#certifications" onclick="closeMenu()">CERTIFICATIONS</a>
+            <a href="#education" onclick="closeMenu()">FORMATION</a>
+            <a href="#contact" onclick="closeMenu()">CONTACT</a>
+        </div>
+    </header>
+
+    <!-- === HERO === -->
+    <section id="hero">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+                <div class="hero-text flex-1 text-center lg:text-left">
+                    <span class="hero-badge">
+                        <i class="fas fa-shield-alt mr-2"></i> SÉCURITÉ & RÉSEAUX
+                    </span>
+
+                    <h1 class="text-4xl md:text-6xl font-bold text-white mt-6 glitch-text" data-text="Pape Mamadou Diop">
+                        Pape Mamadou <br>
+                        <span class="text-green-glow">Diop</span>
+                    </h1>
+
+                    <div class="text-xl md:text-2xl text-gray-300 mt-4 font-tech">
+                        <span id="typewriter-text">Étudiant en Cybersécurité</span>
+                        <span class="typewriter-cursor"></span>
+                    </div>
+
+                    <p class="text-gray-400 text-lg mt-6 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Passionné par les réseaux, la sécurité informatique et le développement web.
+                        Actuellement en recherche de stage.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 mt-8 justify-center lg:justify-start">
+                        <a href="#contact" class="btn-primary">
+                            <i class="fas fa-shield-alt"></i> ME CONTACTER
+                        </a>
+                        <a href="cv-pmd.pdf" download class="btn-outline" id="downloadCV">
+                            <i class="fas fa-file-pdf"></i> TÉLÉCHARGER CV
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex-shrink-0">
+                    <div class="profile-ring">
+                        <div class="avatar">👨‍💻</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === STATS === -->
+    <section class="bg-[#0d1117] py-12" style="padding-top:40px; padding-bottom:40px;">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="stat-number">3+</div>
+                    <p class="text-gray-400 font-tech text-sm">PROJETS</p>
+                </div>
+                <div>
+                    <div class="stat-number">3</div>
+                    <p class="text-gray-400 font-tech text-sm">CERTIFICATIONS</p>
+                </div>
+                <div>
+                    <div class="stat-number">1+</div>
+                    <p class="text-gray-400 font-tech text-sm">ANNÉE D'ÉTUDES</p>
+                </div>
+                <div>
+                    <div class="stat-number">2</div>
+                    <p class="text-gray-400 font-tech text-sm">STAGES</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === ABOUT === -->
+    <section id="about" class="bg-[#0d1117]">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">
+                <span class="number">01.</span> À PROPOS
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <div class="terminal-box mb-6">
+                        <div class="line">$ whoami</div>
+                        <div class="line" style="color:#ffffff;">Pape Mamadou Diop</div>
+                        <div class="line" style="color:#ffffff;">CyberSecurity Student @ Groupe ISI</div>
+                        <div class="line">$ cat about.txt</div>
+                        <div class="line" style="color:#ffffff;">Passionné par la sécurité des réseaux</div>
+                    </div>
+
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        Étudiant en 1ère année de Licence Cybersécurité à <strong>Groupe ISI</strong>, Dakar.
+                        Le cursus combine BTS et Licence en un seul cycle. Passionné par les réseaux,
+                        la sécurité informatique et le développement web, je recherche activement un
+                        stage pour mettre en pratique mes compétences.
+                    </p>
+
+                    <div class="flex items-center gap-4 mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
+                        <div class="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-2xl">
+                            🎓
+                        </div>
+                        <div>
+                            <p class="text-white font-semibold">Groupe ISI</p>
+                            <p class="text-gray-400">Licence Cybersécurité - 1ère année</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-glass">
+                    <h3 class="text-2xl font-tech text-green-glow mb-4">
+                        <i class="fas fa-bullseye mr-3"></i> OBJECTIFS
+                    </h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 text-gray-300">
+                            <span class="text-green-glow text-xl">▸</span>
+                            Mettre en pratique mes compétences en cybersécurité
+                        </li>
+                        <li class="flex items-start gap-4 text-gray-300">
+                            <span class="text-green-glow text-xl">▸</span>
+                            Contribuer à des projets de sécurité réseau
+                        </li>
+                        <li class="flex items-start gap-4 text-gray-300">
+                            <span class="text-green-glow text-xl">▸</span>
+                            Développer mes compétences en développement web sécurisé
+                        </li>
+                        <li class="flex items-start gap-4 text-gray-300">
+                            <span class="text-green-glow text-xl">▸</span>
+                            Obtenir une expérience professionnelle enrichissante
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SKILLS === -->
+    <section id="skills">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">
+                <span class="number">02.</span> COMPÉTENCES
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Réseaux & Sécurité -->
+                <div class="card-glass">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-tech text-white mb-4">Réseaux & Sécurité</h3>
+
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-300">Réseaux (Cisco)</span>
+                                <span class="text-green-glow">85%</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-fill" style="width:85%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-300">Sécurité réseau</span>
+                                <span class="text-green-glow">70%</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-fill" style="width:70%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-300">Cybersécurité</span>
+                                <span class="text-green-glow">65%</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-fill" style="width:65%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-300">Kali Linux / OSINT</span>
+                                <span class="text-green-glow">50%</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-fill" style="width:50%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Développement -->
+                <div class="card-glass">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-tech text-white mb-4">Développement</h3>
+
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-300">HTML / CSS / Bootstrap</span>
+                                <span class="text-green-glow">85%</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-fill" style="width:85%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-300">JavaScript</span>
+                                <span class="text-green-glow">65%</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-fill" style="width:65%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-300">Langage C</span>
+                                <span class="text-green-glow">60%</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-fill" style="width:60%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-300">Bases de données</span>
+                                <span class="text-green-glow">60%</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-fill" style="width:60%;"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-300">WordPress</span>
+                                <span class="text-green-glow">65%</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-fill" style="width:65%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design -->
+                <div class="card-glass">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-tech text-white mb-4">Design</h3>
+
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="text-gray-300">Photoshop</span>
+                                <span class="text-green-glow">60%</span>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-bar-fill" style="width:60%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === PROJECTS === -->
+    <section id="projects" class="bg-[#0d1117]">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">
+                <span class="number">03.</span> PROJETS
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Projet 1 -->
+                <div class="card-glass group">
+                    <div class="h-48 rounded-lg mb-4 bg-gradient-to-br from-green-500/20 to-blue-500/20 flex items-center justify-center text-6xl">
+                        🚀
+                    </div>
+                    <h3 class="text-xl font-tech text-white mb-2">AfriTalent</h3>
+                    <p class="text-gray-400 text-sm mb-4">Plateforme web connectant les freelances tech africains aux entreprises.</p>
+                    <div class="flex flex-wrap">
+                        <span class="project-tag">HTML5</span>
+                        <span class="project-tag">CSS3</span>
+                        <span class="project-tag">Bootstrap</span>
+                        <span class="project-tag">JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="card-glass group">
+                    <div class="h-48 rounded-lg mb-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center text-6xl">
+                        💼
+                    </div>
+                    <h3 class="text-xl font-tech text-white mb-2">Stage ADAMARIE TGI</h3>
+                    <p class="text-gray-400 text-sm mb-4">Maintenance informatique, câbles RJ45, site WordPress, supports graphiques.</p>
+                    <div class="flex flex-wrap">
+                        <span class="project-tag">WordPress</span>
+                        <span class="project-tag">Photoshop</span>
+                        <span class="project-tag">Réseaux</span>
+                    </div>
+                </div>
+
+                <!-- Projet 3 -->
+                <div class="card-glass group">
+                    <div class="h-48 rounded-lg mb-4 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center text-6xl">
+                        🌐
+                    </div>
+                    <h3 class="text-xl font-tech text-white mb-2">Configuration Cisco</h3>
+                    <p class="text-gray-400 text-sm mb-4">Topologies réseau, VLSM, subnetting, CLI Cisco IOS.</p>
+                    <div class="flex flex-wrap">
+                        <span class="project-tag">Cisco</span>
+                        <span class="project-tag">CLI</span>
+                        <span class="project-tag">Réseaux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === CERTIFICATIONS === -->
+    <section id="certifications">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">
+                <span class="number">04.</span> CERTIFICATIONS
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-glass">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">📜</div>
+                        <div>
+                            <h4 class="text-white font-semibold mb-1">CCNA : Présentation des réseaux</h4>
+                            <p class="text-gray-400 text-sm">Cisco Networking Academy</p>
+                            <p class="text-green-glow text-xs mt-2 font-tech">Groupe ISI • Juin 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-glass">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">🛡️</div>
+                        <div>
+                            <h4 class="text-white font-semibold mb-1">Préparer votre carrière dans la cybersécurité</h4>
+                            <p class="text-gray-400 text-sm">Microsoft & LinkedIn Learning</p>
+                            <p class="text-green-glow text-xs mt-2 font-tech">Décembre 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-glass">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">🤖</div>
+                        <div>
+                            <h4 class="text-white font-semibold mb-1">Intelligence Artificielle pour tous</h4>
+                            <p class="text-gray-400 text-sm">Programme FORCE-N</p>
+                            <p class="text-green-glow text-xs mt-2 font-tech">Janvier 2026</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === EDUCATION === -->
+    <section id="education" class="bg-[#0d1117]">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">
+                <span class="number">05.</span> FORMATION
+            </h2>
+
+            <div class="space-y-4">
+                <div class="card-glass flex gap-6 items-start">
+                    <div class="text-4xl">🎓</div>
+                    <div>
+                        <h3 class="text-xl font-tech text-white">Licence Cybersécurité (cycle BTS/Licence)</h3>
+                        <p class="text-green-glow font-semibold">Groupe ISI, Dakar</p>
+                        <p class="text-gray-500 text-sm font-tech">Depuis 2025</p>
+                        <p class="text-gray-400 mt-2">Formation combinant BTS et Licence en un seul cycle, spécialisée en cybersécurité et réseaux.</p>
+                    </div>
+                </div>
+
+                <div class="card-glass flex gap-6 items-start">
+                    <div class="text-4xl">🏫</div>
+                    <div>
+                        <h3 class="text-xl font-tech text-white">Baccalauréat Série S2</h3>
+                        <p class="text-green-glow font-semibold">Lycée de Tivaouane</p>
+                        <p class="text-gray-500 text-sm font-tech">2023-2024</p>
+                        <p class="text-gray-400 mt-2">Baccalauréat Scientifique.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === CONTACT === -->
+    <section id="contact">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title">
+                <span class="number">06.</span> CONTACT
+            </h2>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-tech text-white mb-4">Entrons en contact</h3>
+                    <p class="text-gray-400 mb-8">N'hésitez pas à me contacter pour toute opportunité de stage ou collaboration.</p>
+
+                    <div class="space-y-4">
+                        <div class="contact-item">
+                            <div class="icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <p class="text-gray-500 text-sm">Email</p>
+                                <p class="text-white font-semibold">dioppapemamadou872@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="icon"><i class="fas fa-phone"></i></div>
+                            <div>
+                                <p class="text-gray-500 text-sm">Téléphone</p>
+                                <p class="text-white font-semibold">+221 77 535 02 29</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <p class="text-gray-500 text-sm">Localisation</p>
+                                <p class="text-white font-semibold">Dakar, Sénégal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 mt-8">
+                        <a href="https://www.linkedin.com/in/pape-mamadou-diop-79ba35335" target="_blank" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:text-green-glow hover:border-green-glow transition-all duration-300">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="https://github.com/dioppapemamadou872-web" target="_blank" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:text-green-glow hover:border-green-glow transition-all duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-glass">
+                    <h3 class="text-xl font-tech text-white mb-6">Envoyez-moi un message</h3>
+                    <form id="contactForm" onsubmit="sendEmail(event)">
+                        <div class="mb-4">
+                            <label class="block text-gray-400 text-sm mb-2">Nom complet <span class="text-green-glow">*</span></label>
+                            <input type="text" id="formName" class="form-input" placeholder="Votre nom" required>
+                            <small class="text-red-400 text-xs hidden" id="nameError">Veuillez entrer votre nom</small>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-400 text-sm mb-2">Email <span class="text-green-glow">*</span></label>
+                            <input type="email" id="formEmail" class="form-input" placeholder="votre@email.com" required>
+                            <small class="text-red-400 text-xs hidden" id="emailError">Veuillez entrer un email valide</small>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-400 text-sm mb-2">Sujet</label>
+                            <input type="text" id="formSubject" class="form-input" placeholder="Sujet de votre message">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-gray-400 text-sm mb-2">Message <span class="text-green-glow">*</span></label>
+                            <textarea id="formMessage" rows="4" class="form-input resize-none" placeholder="Votre message..." required></textarea>
+                            <small class="text-red-400 text-xs hidden" id="messageError">Veuillez entrer un message (min 10 caractères)</small>
+                        </div>
+                        <!-- Honeypot anti-spam -->
+                        <input type="text" id="honeypot" style="display:none;" aria-hidden="true">
+                        <button type="submit" class="btn-primary w-full justify-center" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> <span id="btnText">ENVOYER</span>
+                            <span class="spinner hidden" id="btnSpinner"></span>
+                        </button>
+                    </form>
+                    <p class="text-gray-500 text-xs mt-4 text-center">* Champs obligatoires</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer class="bg-[#0a0e1a] border-t border-white/5 py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-500 font-tech text-sm">
+                © 2026 <span class="text-green-glow">Pape Mamadou Diop</span> • Tous droits réservés
+            </p>
+            <p class="text-gray-600 text-xs mt-2">
+                <span class="text-green-glow">&lt;/&gt;</span> Sécurité & Réseaux
+            </p>
+        </div>
+    </footer>
+
+    <!-- === SCRIPTS === -->
+
+    <!-- Matrix Animation -->
+    <script>
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+{}:<>?';
+        const fontSize = 14;
+        const columns = Math.floor(canvas.width / fontSize);
+        const drops = [];
+
+        for (let i = 0; i < columns; i++) {
+            drops[i] = Math.random() * -100;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(10, 14, 26, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ff41';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const char = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 50);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+
+    <!-- Typewriter Effect -->
+    <script>
+        const texts = [
+            'Étudiant en Cybersécurité',
+            'Spécialiste Réseaux',
+            'Développeur Web',
+            'Passionné de Sécurité'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        const typewriterElement = document.getElementById('typewriter-text');
+
+        function typeWriter() {
+            if (charIndex < texts[textIndex].length) {
+                typewriterElement.textContent += texts[textIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 80);
+            } else {
+                setTimeout(() => {
+                    eraseWriter();
+                }, 2000);
+            }
+        }
+
+        function eraseWriter() {
+            if (charIndex > 0) {
+                typewriterElement.textContent = texts[textIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(eraseWriter, 40);
+            } else {
+                textIndex = (textIndex + 1) % texts.length;
+                setTimeout(typeWriter, 500);
+            }
+        }
+
+        typeWriter();
+    </script>
+
+    <!-- Header Scroll Effect -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <!-- Mobile Menu -->
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        function closeMenu() {
+            document.getElementById('mobileMenu').classList.remove('active');
+        }
+    </script>
+
+    <!-- ============================================ -->
+    <!-- === ENVOI D'EMAIL AVEC EMAILJS === -->
+    <!-- ============================================ -->
+    <script>
+        // Initialiser EmailJS avec votre User ID
+        (function() {
+            emailjs.init({
+                publicKey: "FXDglOySRxGZ-8U7tbz8U"
+            });
+        })();
+
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toastMessage.textContent = message;
+            toastIcon.textContent = type === 'success' ? '✅' : '❌';
+            toast.className = 'toast ' + type;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
+        }
+
+        function sendEmail(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('formName').value.trim();
+            const email = document.getElementById('formEmail').value.trim();
+            const subject = document.getElementById('formSubject').value.trim() || 'Demande de contact';
+            const message = document.getElementById('formMessage').value.trim();
+            const honeypot = document.getElementById('honeypot').value;
+
+            // Honeypot anti-spam
+            if (honeypot) {
+                showToast('Erreur : Message non envoyé', 'error');
+                return;
+            }
+
+            // Validation
+            let isValid = true;
+
+            if (name.length < 2) {
+                document.getElementById('formName').classList.add('error');
+                document.getElementById('nameError').classList.remove('hidden');
+                isValid = false;
+            } else {
+                document.getElementById('formName').classList.remove('error');
+                document.getElementById('nameError').classList.add('hidden');
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('formEmail').classList.add('error');
+                document.getElementById('emailError').classList.remove('hidden');
+                isValid = false;
+            } else {
+                document.getElementById('formEmail').classList.remove('error');
+                document.getElementById('emailError').classList.add('hidden');
+            }
+
+            if (message.length < 10) {
+                document.getElementById('formMessage').classList.add('error');
+                document.getElementById('messageError').classList.remove('hidden');
+                isValid = false;
+            } else {
+                document.getElementById('formMessage').classList.remove('error');
+                document.getElementById('messageError').classList.add('hidden');
+            }
+
+            if (!isValid) {
+                showToast('Veuillez corriger les champs en rouge', 'error');
+                return;
+            }
+
+            // Désactiver le bouton et afficher le spinner
+            const btn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const spinner = document.getElementById('btnSpinner');
+            btn.disabled = true;
+            btnText.textContent = 'ENVOI EN COURS...';
+            spinner.classList.remove('hidden');
+
+            // Préparer les données pour EmailJS
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: message,
+                name: name,
+                email: email
+            };
+
+            // Envoyer l'email via EmailJS
+            emailjs.send(
+                'service_messagerie', // SERVICE ID
+                'template_wb8pcdi', // TEMPLATE ID
+                templateParams
+            ).then(
+                function(response) {
+                    console.log('SUCCÈS!', response.status, response.text);
+                    showToast('✅ Message envoyé avec succès ! Je vous répondrai rapidement.', 'success');
+
+                    // Réinitialiser le formulaire
+                    document.getElementById('contactForm').reset();
+
+                    // Réactiver le bouton
+                    btn.disabled = false;
+                    btnText.textContent = 'ENVOYER';
+                    spinner.classList.add('hidden');
+
+                    // Effet de succès
+                    document.querySelectorAll('.form-input').forEach(input => {
+                        input.classList.add('success');
+                        setTimeout(() => {
+                            input.classList.remove('success');
+                        }, 2000);
+                    });
+                },
+                function(error) {
+                    console.log('ERREUR!', error);
+                    showToast('❌ Une erreur est survenue. Veuillez réessayer.', 'error');
+
+                    // Réactiver le bouton
+                    btn.disabled = false;
+                    btnText.textContent = 'ENVOYER';
+                    spinner.classList.add('hidden');
+                }
+            );
+        }
+    </script>
+
+    <!-- Animate skill bars on scroll -->
+    <script>
+        const observerOptions = {
+            threshold: 0.3
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const bars = entry.target.querySelectorAll('.skill-bar-fill');
+                    bars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 150);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-glass').forEach(card => {
+            if (card.querySelector('.skill-bar-fill')) {
+                observer.observe(card);
+            }
+        });
+    </script>
+
+</body>
+</html>
