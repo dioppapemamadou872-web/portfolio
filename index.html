@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0e1a" />
     <title>Pape Mamadou Diop - Cybersécurité</title>
     <meta name="description" content="Portfolio de Pape Mamadou Diop, étudiant en Cybersécurité et Réseaux à Groupe ISI, Dakar. Recherche de stage." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%9B%A1%EF%B8%8F%3C/text%3E%3C/svg%3E" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <!-- EmailJS -->
@@ -28,7 +30,6 @@
             overflow-x: hidden;
         }
 
-        /* === ANIMATION FOND CYBERSÉCURITÉ === */
         #matrix-bg {
             position: fixed;
             top: 0;
@@ -58,23 +59,12 @@
         }
 
         @keyframes scanLine {
-            0% {
-                top: 0%;
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.3;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                top: 100%;
-                opacity: 0;
-            }
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { top: 100%; opacity: 0; }
         }
 
-        /* === GLITCH EFFECT === */
         .glitch-text {
             position: relative;
             text-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
@@ -106,52 +96,24 @@
         }
 
         @keyframes glitch1 {
-            0% {
-                transform: translate(0);
-            }
-            20% {
-                transform: translate(-5px, 2px);
-            }
-            40% {
-                transform: translate(5px, -2px);
-            }
-            60% {
-                transform: translate(-3px, 1px);
-            }
-            80% {
-                transform: translate(3px, -1px);
-            }
-            100% {
-                transform: translate(0);
-            }
+            0% { transform: translate(0); }
+            20% { transform: translate(-5px, 2px); }
+            40% { transform: translate(5px, -2px); }
+            60% { transform: translate(-3px, 1px); }
+            80% { transform: translate(3px, -1px); }
+            100% { transform: translate(0); }
         }
 
         @keyframes glitch2 {
-            0% {
-                transform: translate(0);
-            }
-            20% {
-                transform: translate(5px, -2px);
-            }
-            40% {
-                transform: translate(-5px, 2px);
-            }
-            60% {
-                transform: translate(3px, -1px);
-            }
-            80% {
-                transform: translate(-3px, 1px);
-            }
-            100% {
-                transform: translate(0);
-            }
+            0% { transform: translate(0); }
+            20% { transform: translate(5px, -2px); }
+            40% { transform: translate(-5px, 2px); }
+            60% { transform: translate(3px, -1px); }
+            80% { transform: translate(-3px, 1px); }
+            100% { transform: translate(0); }
         }
 
-        /* === TYPOGRAPHIE === */
-        h1,
-        h2,
-        h3,
-        .font-tech {
+        h1, h2, h3, .font-tech {
             font-family: 'Orbitron', monospace;
         }
 
@@ -160,7 +122,6 @@
             text-shadow: 0 0 20px rgba(0, 255, 65, 0.5), 0 0 60px rgba(0, 255, 65, 0.2);
         }
 
-        /* === HEADER === */
         header {
             background: rgba(10, 14, 26, 0.9);
             backdrop-filter: blur(20px);
@@ -201,22 +162,32 @@
             transform: translateX(-50%);
         }
 
-        .nav-link:hover {
+        .nav-link:hover,
+        .nav-link.active {
             color: #00ff41;
         }
 
-        .nav-link:hover::before {
+        .nav-link:hover::before,
+        .nav-link.active::before {
             width: 80%;
         }
 
-        /* === HERO === */
+        .nav-link:focus-visible,
+        .mobile-menu-btn:focus-visible,
+        .btn-primary:focus-visible,
+        .btn-outline:focus-visible {
+            outline: 2px solid #00ff41;
+            outline-offset: 3px;
+        }
+
         #hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             z-index: 1;
-            padding-top: 80px;
+            padding-top: 90px;
+            scroll-margin-top: 70px;
         }
 
         .hero-badge {
@@ -232,13 +203,8 @@
         }
 
         @keyframes pulse {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         .typewriter-cursor {
@@ -250,13 +216,8 @@
         }
 
         @keyframes blink {
-            0%,
-            100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         .profile-ring {
@@ -292,19 +253,12 @@
         }
 
         @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
+            to { transform: rotate(360deg); }
         }
 
         @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
 
         .profile-ring .avatar {
@@ -319,16 +273,16 @@
             border: 2px solid rgba(0, 255, 65, 0.2);
         }
 
-        /* === SECTIONS === */
         section {
             position: relative;
             z-index: 1;
             padding: 100px 0;
+            scroll-margin-top: 70px;
         }
 
         .section-title {
             font-family: 'Orbitron', monospace;
-            font-size: 2.5rem;
+            font-size: clamp(1.6rem, 4vw, 2.5rem);
             color: #ffffff;
             margin-bottom: 50px;
             position: relative;
@@ -353,7 +307,6 @@
             opacity: 0.5;
         }
 
-        /* === CARDS === */
         .card-glass {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
@@ -375,6 +328,7 @@
             background: radial-gradient(circle at center, rgba(0, 255, 65, 0.03), transparent 70%);
             opacity: 0;
             transition: opacity 0.4s ease;
+            pointer-events: none; /* FIX : laisse passer les clics vers le contenu (formulaire inclus) */
         }
 
         .card-glass:hover {
@@ -401,7 +355,6 @@
             border: 1px solid rgba(0, 255, 65, 0.2);
         }
 
-        /* === SKILL BARS === */
         .skill-bar-container {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
@@ -419,7 +372,6 @@
             width: 0%;
         }
 
-        /* === PROJECTS === */
         .project-tag {
             display: inline-block;
             padding: 4px 14px;
@@ -434,7 +386,6 @@
             font-family: 'Orbitron', monospace;
         }
 
-        /* === CONTACT === */
         .contact-item {
             display: flex;
             align-items: center;
@@ -462,6 +413,7 @@
             justify-content: center;
             font-size: 20px;
             color: #00ff41;
+            flex-shrink: 0;
         }
 
         .form-input {
@@ -474,6 +426,8 @@
             font-size: 15px;
             transition: all 0.3s ease;
             font-family: 'Rajdhani', sans-serif;
+            position: relative;
+            z-index: 2;
         }
 
         .form-input:focus {
@@ -513,6 +467,8 @@
             text-decoration: none;
             font-family: 'Orbitron', monospace;
             letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
         }
 
         .btn-primary:hover {
@@ -550,7 +506,6 @@
             transform: scale(1.05);
         }
 
-        /* === TERMINAL EFFECT === */
         .terminal-box {
             background: rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(0, 255, 65, 0.2);
@@ -567,42 +522,24 @@
             animation: typeIn 0.5s ease forwards;
         }
 
-        .terminal-box .line:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-        .terminal-box .line:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-        .terminal-box .line:nth-child(3) {
-            animation-delay: 0.7s;
-        }
-        .terminal-box .line:nth-child(4) {
-            animation-delay: 1.0s;
-        }
-        .terminal-box .line:nth-child(5) {
-            animation-delay: 1.3s;
-        }
+        .terminal-box .line:nth-child(1) { animation-delay: 0.1s; }
+        .terminal-box .line:nth-child(2) { animation-delay: 0.4s; }
+        .terminal-box .line:nth-child(3) { animation-delay: 0.7s; }
+        .terminal-box .line:nth-child(4) { animation-delay: 1.0s; }
+        .terminal-box .line:nth-child(5) { animation-delay: 1.3s; }
 
         @keyframes typeIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
-        /* === STATS === */
         .stat-number {
             font-family: 'Orbitron', monospace;
-            font-size: 3rem;
+            font-size: clamp(1.6rem, 4vw, 3rem);
             color: #00ff41;
             text-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
         }
 
-        /* === TOAST NOTIFICATION === */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -620,68 +557,79 @@
             backdrop-filter: blur(20px);
         }
 
-        .toast.show {
-            transform: translateX(0);
-        }
-
-        .toast.success {
-            border-color: #00ff41;
-        }
-
-        .toast.error {
-            border-color: #ff0040;
-        }
+        .toast.show { transform: translateX(0); }
+        .toast.success { border-color: #00ff41; }
+        .toast.error { border-color: #ff0040; }
 
         .toast .toast-icon {
             margin-right: 12px;
             font-size: 20px;
         }
 
-        /* === RESPONSIVE === */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(10, 14, 26, 0.9);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            color: #00ff41;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 900;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: rgba(0, 255, 65, 0.15);
+            box-shadow: 0 0 25px rgba(0, 255, 65, 0.3);
+        }
+
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .mobile-menu-btn {
-                display: block !important;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .profile-ring {
-                width: 200px;
-                height: 200px;
-            }
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .skill-grid {
-                grid-template-columns: 1fr;
-            }
-            .stat-number {
-                font-size: 2rem;
-            }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block !important; }
+            .profile-ring { width: 200px; height: 200px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .skill-grid { grid-template-columns: 1fr; }
+            section { padding: 70px 0; }
+            .back-to-top { width: 42px; height: 42px; bottom: 20px; left: 20px; }
+            .toast { left: 20px; right: 20px; max-width: none; bottom: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .profile-ring { width: 160px; height: 160px; }
+            .profile-ring .avatar { font-size: 55px; }
+            .hero-badge { font-size: 10px; padding: 5px 14px; }
+            .btn-primary, .btn-outline { padding: 12px 24px; font-size: 14px; width: 100%; justify-content: center; }
+            .card-glass { padding: 22px; }
+            .contact-item { padding: 14px 16px; gap: 14px; }
         }
 
         @media (min-width: 769px) {
-            .mobile-menu-btn {
-                display: none !important;
-            }
+            .mobile-menu-btn { display: none !important; }
         }
 
-        /* Mobile Menu */
         .mobile-menu {
             display: none;
             padding: 20px 0;
             border-top: 1px solid rgba(0, 255, 65, 0.1);
         }
 
-        .mobile-menu.active {
-            display: block;
-        }
+        .mobile-menu.active { display: block; }
 
         .mobile-menu a {
             display: block;
@@ -693,26 +641,13 @@
             font-weight: 600;
         }
 
-        .mobile-menu a:hover {
-            color: #00ff41;
-        }
+        .mobile-menu a:hover,
+        .mobile-menu a.active { color: #00ff41; }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            background: #0a0e1a;
-        }
+        ::-webkit-scrollbar { width: 8px; background: #0a0e1a; }
+        ::-webkit-scrollbar-thumb { background: #00ff41; border-radius: 10px; }
+        ::-webkit-scrollbar-track { background: #0a0e1a; }
 
-        ::-webkit-scrollbar-thumb {
-            background: #00ff41;
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0a0e1a;
-        }
-
-        /* Loading spinner */
         .spinner {
             display: inline-block;
             width: 20px;
@@ -722,17 +657,10 @@
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
         }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
     </style>
 </head>
 <body>
 
-    <!-- === MATRIX BACKGROUND === -->
     <div id="matrix-bg">
         <canvas id="matrixCanvas"></canvas>
         <div class="glow-line" style="left:10%; animation-delay:0s;"></div>
@@ -742,13 +670,15 @@
         <div class="glow-line" style="left:90%; animation-delay:3s;"></div>
     </div>
 
-    <!-- === TOAST NOTIFICATION === -->
     <div class="toast" id="toast">
         <span class="toast-icon" id="toastIcon">✅</span>
         <span id="toastMessage">Message envoyé avec succès !</span>
     </div>
 
-    <!-- === HEADER === -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <header id="header">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -766,8 +696,8 @@
                 <a href="#contact" class="nav-link">CONTACT</a>
             </nav>
 
-            <button class="mobile-menu-btn text-white text-2xl" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
+            <button class="mobile-menu-btn text-white text-2xl" onclick="toggleMenu()" aria-label="Ouvrir le menu" id="mobileMenuBtn">
+                <i class="fas fa-bars" id="mobileMenuIcon"></i>
             </button>
         </div>
 
@@ -782,7 +712,6 @@
         </div>
     </header>
 
-    <!-- === HERO === -->
     <section id="hero">
         <div class="container mx-auto px-4">
             <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
@@ -791,17 +720,17 @@
                         <i class="fas fa-shield-alt mr-2"></i> SÉCURITÉ & RÉSEAUX
                     </span>
 
-                    <h1 class="text-4xl md:text-6xl font-bold text-white mt-6 glitch-text" data-text="Pape Mamadou Diop">
+                    <h1 class="font-bold text-white mt-6 glitch-text" style="font-size:clamp(2rem, 6vw, 3.75rem);" data-text="Pape Mamadou Diop">
                         Pape Mamadou <br>
                         <span class="text-green-glow">Diop</span>
                     </h1>
 
-                    <div class="text-xl md:text-2xl text-gray-300 mt-4 font-tech">
-                        <span id="typewriter-text">Étudiant en Cybersécurité</span>
+                    <div class="text-lg md:text-2xl text-gray-300 mt-4 font-tech">
+                        <span id="typewriter-text"></span>
                         <span class="typewriter-cursor"></span>
                     </div>
 
-                    <p class="text-gray-400 text-lg mt-6 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    <p class="text-gray-400 text-base md:text-lg mt-6 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                         Passionné par les réseaux, la sécurité informatique et le développement web.
                         Actuellement en recherche de stage.
                     </p>
@@ -825,31 +754,29 @@
         </div>
     </section>
 
-    <!-- === STATS === -->
-    <section class="bg-[#0d1117] py-12" style="padding-top:40px; padding-bottom:40px;">
+    <section class="bg-[#0d1117]" style="padding-top:40px; padding-bottom:40px;">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
                 <div>
                     <div class="stat-number">3+</div>
-                    <p class="text-gray-400 font-tech text-sm">PROJETS</p>
+                    <p class="text-gray-400 font-tech text-xs md:text-sm">PROJETS</p>
                 </div>
                 <div>
                     <div class="stat-number">3</div>
-                    <p class="text-gray-400 font-tech text-sm">CERTIFICATIONS</p>
+                    <p class="text-gray-400 font-tech text-xs md:text-sm">CERTIFICATIONS</p>
                 </div>
                 <div>
                     <div class="stat-number">1+</div>
-                    <p class="text-gray-400 font-tech text-sm">ANNÉE D'ÉTUDES</p>
+                    <p class="text-gray-400 font-tech text-xs md:text-sm">ANNÉE D'ÉTUDES</p>
                 </div>
                 <div>
-                    <div class="stat-number">2</div>
-                    <p class="text-gray-400 font-tech text-sm">STAGES</p>
+                    <div class="stat-number">1</div>
+                    <p class="text-gray-400 font-tech text-xs md:text-sm">STAGE</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- === ABOUT === -->
     <section id="about" class="bg-[#0d1117]">
         <div class="container mx-auto px-4">
             <h2 class="section-title">
@@ -866,7 +793,7 @@
                         <div class="line" style="color:#ffffff;">Passionné par la sécurité des réseaux</div>
                     </div>
 
-                    <p class="text-gray-300 leading-relaxed text-lg">
+                    <p class="text-gray-300 leading-relaxed text-base md:text-lg">
                         Étudiant en 1ère année de Licence Cybersécurité à <strong>Groupe ISI</strong>, Dakar.
                         Le cursus combine BTS et Licence en un seul cycle. Passionné par les réseaux,
                         la sécurité informatique et le développement web, je recherche activement un
@@ -874,7 +801,7 @@
                     </p>
 
                     <div class="flex items-center gap-4 mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
-                        <div class="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-2xl">
+                        <div class="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center text-2xl flex-shrink-0">
                             🎓
                         </div>
                         <div>
@@ -885,7 +812,7 @@
                 </div>
 
                 <div class="card-glass">
-                    <h3 class="text-2xl font-tech text-green-glow mb-4">
+                    <h3 class="text-xl md:text-2xl font-tech text-green-glow mb-4">
                         <i class="fas fa-bullseye mr-3"></i> OBJECTIFS
                     </h3>
                     <ul class="space-y-4">
@@ -911,7 +838,6 @@
         </div>
     </section>
 
-    <!-- === SKILLS === -->
     <section id="skills">
         <div class="container mx-auto px-4">
             <h2 class="section-title">
@@ -919,125 +845,93 @@
             </h2>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Réseaux & Sécurité -->
                 <div class="card-glass">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
+                    <div class="icon-wrapper"><i class="fas fa-network-wired"></i></div>
                     <h3 class="text-xl font-tech text-white mb-4">Réseaux & Sécurité</h3>
-
                     <div class="space-y-4">
                         <div>
                             <div class="flex justify-between text-sm mb-1">
                                 <span class="text-gray-300">Réseaux (Cisco)</span>
                                 <span class="text-green-glow">85%</span>
                             </div>
-                            <div class="skill-bar-container">
-                                <div class="skill-bar-fill" style="width:85%;"></div>
-                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar-fill" style="width:85%;"></div></div>
                         </div>
                         <div>
                             <div class="flex justify-between text-sm mb-1">
                                 <span class="text-gray-300">Sécurité réseau</span>
                                 <span class="text-green-glow">70%</span>
                             </div>
-                            <div class="skill-bar-container">
-                                <div class="skill-bar-fill" style="width:70%;"></div>
-                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar-fill" style="width:70%;"></div></div>
                         </div>
                         <div>
                             <div class="flex justify-between text-sm mb-1">
                                 <span class="text-gray-300">Cybersécurité</span>
                                 <span class="text-green-glow">65%</span>
                             </div>
-                            <div class="skill-bar-container">
-                                <div class="skill-bar-fill" style="width:65%;"></div>
-                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar-fill" style="width:65%;"></div></div>
                         </div>
                         <div>
                             <div class="flex justify-between text-sm mb-1">
                                 <span class="text-gray-300">Kali Linux / OSINT</span>
                                 <span class="text-green-glow">50%</span>
                             </div>
-                            <div class="skill-bar-container">
-                                <div class="skill-bar-fill" style="width:50%;"></div>
-                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar-fill" style="width:50%;"></div></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Développement -->
                 <div class="card-glass">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-code"></i>
-                    </div>
+                    <div class="icon-wrapper"><i class="fas fa-code"></i></div>
                     <h3 class="text-xl font-tech text-white mb-4">Développement</h3>
-
                     <div class="space-y-4">
                         <div>
                             <div class="flex justify-between text-sm mb-1">
                                 <span class="text-gray-300">HTML / CSS / Bootstrap</span>
                                 <span class="text-green-glow">85%</span>
                             </div>
-                            <div class="skill-bar-container">
-                                <div class="skill-bar-fill" style="width:85%;"></div>
-                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar-fill" style="width:85%;"></div></div>
                         </div>
                         <div>
                             <div class="flex justify-between text-sm mb-1">
                                 <span class="text-gray-300">JavaScript</span>
                                 <span class="text-green-glow">65%</span>
                             </div>
-                            <div class="skill-bar-container">
-                                <div class="skill-bar-fill" style="width:65%;"></div>
-                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar-fill" style="width:65%;"></div></div>
                         </div>
                         <div>
                             <div class="flex justify-between text-sm mb-1">
                                 <span class="text-gray-300">Langage C</span>
                                 <span class="text-green-glow">60%</span>
                             </div>
-                            <div class="skill-bar-container">
-                                <div class="skill-bar-fill" style="width:60%;"></div>
-                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar-fill" style="width:60%;"></div></div>
                         </div>
                         <div>
                             <div class="flex justify-between text-sm mb-1">
                                 <span class="text-gray-300">Bases de données</span>
                                 <span class="text-green-glow">60%</span>
                             </div>
-                            <div class="skill-bar-container">
-                                <div class="skill-bar-fill" style="width:60%;"></div>
-                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar-fill" style="width:60%;"></div></div>
                         </div>
                         <div>
                             <div class="flex justify-between text-sm mb-1">
                                 <span class="text-gray-300">WordPress</span>
                                 <span class="text-green-glow">65%</span>
                             </div>
-                            <div class="skill-bar-container">
-                                <div class="skill-bar-fill" style="width:65%;"></div>
-                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar-fill" style="width:65%;"></div></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Design -->
                 <div class="card-glass">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
+                    <div class="icon-wrapper"><i class="fas fa-paint-brush"></i></div>
                     <h3 class="text-xl font-tech text-white mb-4">Design</h3>
-
                     <div class="space-y-4">
                         <div>
                             <div class="flex justify-between text-sm mb-1">
                                 <span class="text-gray-300">Photoshop</span>
                                 <span class="text-green-glow">60%</span>
                             </div>
-                            <div class="skill-bar-container">
-                                <div class="skill-bar-fill" style="width:60%;"></div>
-                            </div>
+                            <div class="skill-bar-container"><div class="skill-bar-fill" style="width:60%;"></div></div>
                         </div>
                     </div>
                 </div>
@@ -1045,7 +939,6 @@
         </div>
     </section>
 
-    <!-- === PROJECTS === -->
     <section id="projects" class="bg-[#0d1117]">
         <div class="container mx-auto px-4">
             <h2 class="section-title">
@@ -1053,11 +946,8 @@
             </h2>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Projet 1 -->
                 <div class="card-glass group">
-                    <div class="h-48 rounded-lg mb-4 bg-gradient-to-br from-green-500/20 to-blue-500/20 flex items-center justify-center text-6xl">
-                        🚀
-                    </div>
+                    <div class="h-40 md:h-48 rounded-lg mb-4 bg-gradient-to-br from-green-500/20 to-blue-500/20 flex items-center justify-center text-6xl">🚀</div>
                     <h3 class="text-xl font-tech text-white mb-2">AfriTalent</h3>
                     <p class="text-gray-400 text-sm mb-4">Plateforme web connectant les freelances tech africains aux entreprises.</p>
                     <div class="flex flex-wrap">
@@ -1068,11 +958,8 @@
                     </div>
                 </div>
 
-                <!-- Projet 2 -->
                 <div class="card-glass group">
-                    <div class="h-48 rounded-lg mb-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center text-6xl">
-                        💼
-                    </div>
+                    <div class="h-40 md:h-48 rounded-lg mb-4 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center text-6xl">💼</div>
                     <h3 class="text-xl font-tech text-white mb-2">Stage ADAMARIE TGI</h3>
                     <p class="text-gray-400 text-sm mb-4">Maintenance informatique, câbles RJ45, site WordPress, supports graphiques.</p>
                     <div class="flex flex-wrap">
@@ -1082,11 +969,8 @@
                     </div>
                 </div>
 
-                <!-- Projet 3 -->
                 <div class="card-glass group">
-                    <div class="h-48 rounded-lg mb-4 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center text-6xl">
-                        🌐
-                    </div>
+                    <div class="h-40 md:h-48 rounded-lg mb-4 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center text-6xl">🌐</div>
                     <h3 class="text-xl font-tech text-white mb-2">Configuration Cisco</h3>
                     <p class="text-gray-400 text-sm mb-4">Topologies réseau, VLSM, subnetting, CLI Cisco IOS.</p>
                     <div class="flex flex-wrap">
@@ -1099,7 +983,6 @@
         </div>
     </section>
 
-    <!-- === CERTIFICATIONS === -->
     <section id="certifications">
         <div class="container mx-auto px-4">
             <h2 class="section-title">
@@ -1143,7 +1026,6 @@
         </div>
     </section>
 
-    <!-- === EDUCATION === -->
     <section id="education" class="bg-[#0d1117]">
         <div class="container mx-auto px-4">
             <h2 class="section-title">
@@ -1151,20 +1033,20 @@
             </h2>
 
             <div class="space-y-4">
-                <div class="card-glass flex gap-6 items-start">
+                <div class="card-glass flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
                     <div class="text-4xl">🎓</div>
                     <div>
-                        <h3 class="text-xl font-tech text-white">Licence Cybersécurité (cycle BTS/Licence)</h3>
+                        <h3 class="text-lg md:text-xl font-tech text-white">Licence Cybersécurité (cycle BTS/Licence)</h3>
                         <p class="text-green-glow font-semibold">Groupe ISI, Dakar</p>
                         <p class="text-gray-500 text-sm font-tech">Depuis 2025</p>
                         <p class="text-gray-400 mt-2">Formation combinant BTS et Licence en un seul cycle, spécialisée en cybersécurité et réseaux.</p>
                     </div>
                 </div>
 
-                <div class="card-glass flex gap-6 items-start">
+                <div class="card-glass flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
                     <div class="text-4xl">🏫</div>
                     <div>
-                        <h3 class="text-xl font-tech text-white">Baccalauréat Série S2</h3>
+                        <h3 class="text-lg md:text-xl font-tech text-white">Baccalauréat Série S2</h3>
                         <p class="text-green-glow font-semibold">Lycée de Tivaouane</p>
                         <p class="text-gray-500 text-sm font-tech">2023-2024</p>
                         <p class="text-gray-400 mt-2">Baccalauréat Scientifique.</p>
@@ -1174,7 +1056,6 @@
         </div>
     </section>
 
-    <!-- === CONTACT === -->
     <section id="contact">
         <div class="container mx-auto px-4">
             <h2 class="section-title">
@@ -1183,7 +1064,7 @@
 
             <div class="grid lg:grid-cols-2 gap-12">
                 <div>
-                    <h3 class="text-2xl font-tech text-white mb-4">Entrons en contact</h3>
+                    <h3 class="text-xl md:text-2xl font-tech text-white mb-4">Entrons en contact</h3>
                     <p class="text-gray-400 mb-8">N'hésitez pas à me contacter pour toute opportunité de stage ou collaboration.</p>
 
                     <div class="space-y-4">
@@ -1191,7 +1072,7 @@
                             <div class="icon"><i class="fas fa-envelope"></i></div>
                             <div>
                                 <p class="text-gray-500 text-sm">Email</p>
-                                <p class="text-white font-semibold">dioppapemamadou872@gmail.com</p>
+                                <p class="text-white font-semibold break-all">dioppapemamadou872@gmail.com</p>
                             </div>
                         </div>
 
@@ -1202,7 +1083,7 @@
                                 <p class="text-white font-semibold">+221 77 535 02 29</p>
                             </div>
                         </div>
-                        
+
                         <div class="contact-item">
                             <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
                             <div>
@@ -1213,10 +1094,10 @@
                     </div>
 
                     <div class="flex gap-4 mt-8">
-                        <a href="https://www.linkedin.com/in/pape-mamadou-diop-79ba35335" target="_blank" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:text-green-glow hover:border-green-glow transition-all duration-300">
+                        <a href="https://www.linkedin.com/in/pape-mamadou-diop-79ba35335" target="_blank" rel="noopener" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:text-green-glow hover:border-green-glow transition-all duration-300">
                             <i class="fab fa-linkedin-in text-xl"></i>
                         </a>
-                        <a href="https://github.com/dioppapemamadou872-web" target="_blank" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:text-green-glow hover:border-green-glow transition-all duration-300">
+                        <a href="https://github.com/dioppapemamadou872-web" target="_blank" rel="noopener" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:text-green-glow hover:border-green-glow transition-all duration-300">
                             <i class="fab fa-github text-xl"></i>
                         </a>
                     </div>
@@ -1226,26 +1107,25 @@
                     <h3 class="text-xl font-tech text-white mb-6">Envoyez-moi un message</h3>
                     <form id="contactForm" onsubmit="sendEmail(event)">
                         <div class="mb-4">
-                            <label class="block text-gray-400 text-sm mb-2">Nom complet <span class="text-green-glow">*</span></label>
+                            <label class="block text-gray-400 text-sm mb-2" for="formName">Nom complet <span class="text-green-glow">*</span></label>
                             <input type="text" id="formName" class="form-input" placeholder="Votre nom" required>
                             <small class="text-red-400 text-xs hidden" id="nameError">Veuillez entrer votre nom</small>
                         </div>
                         <div class="mb-4">
-                            <label class="block text-gray-400 text-sm mb-2">Email <span class="text-green-glow">*</span></label>
+                            <label class="block text-gray-400 text-sm mb-2" for="formEmail">Email <span class="text-green-glow">*</span></label>
                             <input type="email" id="formEmail" class="form-input" placeholder="votre@email.com" required>
                             <small class="text-red-400 text-xs hidden" id="emailError">Veuillez entrer un email valide</small>
                         </div>
                         <div class="mb-4">
-                            <label class="block text-gray-400 text-sm mb-2">Sujet</label>
+                            <label class="block text-gray-400 text-sm mb-2" for="formSubject">Sujet</label>
                             <input type="text" id="formSubject" class="form-input" placeholder="Sujet de votre message">
                         </div>
                         <div class="mb-6">
-                            <label class="block text-gray-400 text-sm mb-2">Message <span class="text-green-glow">*</span></label>
+                            <label class="block text-gray-400 text-sm mb-2" for="formMessage">Message <span class="text-green-glow">*</span></label>
                             <textarea id="formMessage" rows="4" class="form-input resize-none" placeholder="Votre message..." required></textarea>
                             <small class="text-red-400 text-xs hidden" id="messageError">Veuillez entrer un message (min 10 caractères)</small>
                         </div>
-                        <!-- Honeypot anti-spam -->
-                        <input type="text" id="honeypot" style="display:none;" aria-hidden="true">
+                        <input type="text" id="honeypot" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
                         <button type="submit" class="btn-primary w-full justify-center" id="submitBtn">
                             <i class="fas fa-paper-plane"></i> <span id="btnText">ENVOYER</span>
                             <span class="spinner hidden" id="btnSpinner"></span>
@@ -1257,7 +1137,6 @@
         </div>
     </section>
 
-    <!-- === FOOTER === -->
     <footer class="bg-[#0a0e1a] border-t border-white/5 py-8">
         <div class="container mx-auto px-4 text-center">
             <p class="text-gray-500 font-tech text-sm">
@@ -1269,36 +1148,30 @@
         </div>
     </footer>
 
-    <!-- === SCRIPTS === -->
-
-    <!-- Matrix Animation -->
     <script>
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
         const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+{}:<>?';
         const fontSize = 14;
-        const columns = Math.floor(canvas.width / fontSize);
-        const drops = [];
+        let columns, drops;
 
-        for (let i = 0; i < columns; i++) {
-            drops[i] = Math.random() * -100;
+        function setupMatrix() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            columns = Math.floor(canvas.width / fontSize);
+            drops = new Array(columns).fill(0).map(() => Math.random() * -100);
         }
+        setupMatrix();
 
         function drawMatrix() {
             ctx.fillStyle = 'rgba(10, 14, 26, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-
             ctx.fillStyle = '#00ff41';
             ctx.font = fontSize + 'px monospace';
 
             for (let i = 0; i < drops.length; i++) {
                 const char = chars[Math.floor(Math.random() * chars.length)];
                 ctx.fillText(char, i * fontSize, drops[i] * fontSize);
-
                 if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
@@ -1308,13 +1181,13 @@
 
         setInterval(drawMatrix, 50);
 
+        let resizeTimeout;
         window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(setupMatrix, 200);
         });
     </script>
 
-    <!-- Typewriter Effect -->
     <script>
         const texts = [
             'Étudiant en Cybersécurité',
@@ -1325,65 +1198,101 @@
         let textIndex = 0;
         let charIndex = 0;
         const typewriterElement = document.getElementById('typewriter-text');
+        let isDeleting = false;
 
         function typeWriter() {
-            if (charIndex < texts[textIndex].length) {
-                typewriterElement.textContent += texts[textIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(typeWriter, 80);
+            const currentText = texts[textIndex];
+            if (!isDeleting) {
+                if (charIndex < currentText.length) {
+                    typewriterElement.textContent = currentText.substring(0, charIndex + 1);
+                    charIndex++;
+                    setTimeout(typeWriter, 80);
+                } else {
+                    isDeleting = true;
+                    setTimeout(typeWriter, 2500);
+                }
             } else {
-                setTimeout(() => {
-                    eraseWriter();
-                }, 2000);
+                if (charIndex > 0) {
+                    typewriterElement.textContent = currentText.substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(typeWriter, 40);
+                } else {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                    setTimeout(typeWriter, 500);
+                }
             }
         }
-
-        function eraseWriter() {
-            if (charIndex > 0) {
-                typewriterElement.textContent = texts[textIndex].substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(eraseWriter, 40);
-            } else {
-                textIndex = (textIndex + 1) % texts.length;
-                setTimeout(typeWriter, 500);
-            }
-        }
-
-        typeWriter();
+        setTimeout(typeWriter, 300);
     </script>
 
-    <!-- Header Scroll Effect -->
     <script>
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
+            const backToTop = document.getElementById('backToTop');
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
+            if (window.scrollY > 400) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
         });
     </script>
 
-    <!-- Mobile Menu -->
     <script>
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
         function toggleMenu() {
-            document.getElementById('mobileMenu').classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            const isOpen = mobileMenu.classList.contains('active');
+            mobileMenuIcon.classList.toggle('fa-bars', !isOpen);
+            mobileMenuIcon.classList.toggle('fa-times', isOpen);
+            mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
         }
 
         function closeMenu() {
-            document.getElementById('mobileMenu').classList.remove('active');
+            mobileMenu.classList.remove('active');
+            mobileMenuIcon.classList.remove('fa-times');
+            mobileMenuIcon.classList.add('fa-bars');
+            mobileMenuBtn.setAttribute('aria-label', 'Ouvrir le menu');
         }
+
+        document.addEventListener('click', (e) => {
+            if (mobileMenu.classList.contains('active') &&
+                !mobileMenu.contains(e.target) &&
+                !mobileMenuBtn.contains(e.target)) {
+                closeMenu();
+            }
+        });
     </script>
 
-    <!-- ============================================ -->
-    <!-- === ENVOI D'EMAIL AVEC EMAILJS === -->
-    <!-- ============================================ -->
     <script>
-        // Initialiser EmailJS avec votre User ID
-        (function() {
-            emailjs.init({
-                publicKey: "FXDglOySRxGZ-8U7tbz8U"
+        const navLinks = document.querySelectorAll('.nav-link, .mobile-menu a');
+        const sections = document.querySelectorAll('section[id]');
+
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                    });
+                }
             });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+
+        sections.forEach(sec => navObserver.observe(sec));
+    </script>
+
+    <script>
+        (function() {
+            emailjs.init({ publicKey: "FXDglOySRxGZ-8U7tbz8U" });
         })();
 
         function showToast(message, type = 'success') {
@@ -1410,13 +1319,11 @@
             const message = document.getElementById('formMessage').value.trim();
             const honeypot = document.getElementById('honeypot').value;
 
-            // Honeypot anti-spam
             if (honeypot) {
                 showToast('Erreur : Message non envoyé', 'error');
                 return;
             }
 
-            // Validation
             let isValid = true;
 
             if (name.length < 2) {
@@ -1452,7 +1359,6 @@
                 return;
             }
 
-            // Désactiver le bouton et afficher le spinner
             const btn = document.getElementById('submitBtn');
             const btnText = document.getElementById('btnText');
             const spinner = document.getElementById('btnSpinner');
@@ -1460,7 +1366,6 @@
             btnText.textContent = 'ENVOI EN COURS...';
             spinner.classList.remove('hidden');
 
-            // Préparer les données pour EmailJS
             const templateParams = {
                 from_name: name,
                 from_email: email,
@@ -1470,37 +1375,26 @@
                 email: email
             };
 
-            // Envoyer l'email via EmailJS
             emailjs.send(
-                'service_messagerie', // SERVICE ID
-                'template_wb8pcdi', // TEMPLATE ID
+                'service_messagerie',
+                'template_wb8pcdi',
                 templateParams
             ).then(
                 function(response) {
                     console.log('SUCCÈS!', response.status, response.text);
                     showToast('✅ Message envoyé avec succès ! Je vous répondrai rapidement.', 'success');
-
-                    // Réinitialiser le formulaire
                     document.getElementById('contactForm').reset();
-
-                    // Réactiver le bouton
                     btn.disabled = false;
                     btnText.textContent = 'ENVOYER';
                     spinner.classList.add('hidden');
-
-                    // Effet de succès
                     document.querySelectorAll('.form-input').forEach(input => {
                         input.classList.add('success');
-                        setTimeout(() => {
-                            input.classList.remove('success');
-                        }, 2000);
+                        setTimeout(() => { input.classList.remove('success'); }, 2000);
                     });
                 },
                 function(error) {
                     console.log('ERREUR!', error);
                     showToast('❌ Une erreur est survenue. Veuillez réessayer.', 'error');
-
-                    // Réactiver le bouton
                     btn.disabled = false;
                     btnText.textContent = 'ENVOYER';
                     spinner.classList.add('hidden');
@@ -1509,11 +1403,8 @@
         }
     </script>
 
-    <!-- Animate skill bars on scroll -->
     <script>
-        const observerOptions = {
-            threshold: 0.3
-        };
+        const observerOptions = { threshold: 0.3 };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1522,9 +1413,7 @@
                     bars.forEach(bar => {
                         const width = bar.style.width;
                         bar.style.width = '0%';
-                        setTimeout(() => {
-                            bar.style.width = width;
-                        }, 150);
+                        setTimeout(() => { bar.style.width = width; }, 150);
                     });
                 }
             });
