@@ -623,10 +623,49 @@
             .mobile-menu-btn { display: none !important; }
         }
 
+        .hamburger-icon {
+            width: 24px;
+            height: 17px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hamburger-icon span {
+            display: block;
+            position: absolute;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 2px;
+            transition: transform 0.25s ease, opacity 0.25s ease, top 0.25s ease;
+        }
+
+        .hamburger-icon span:nth-child(1) { top: 0; }
+        .hamburger-icon span:nth-child(2) { top: 7px; }
+        .hamburger-icon span:nth-child(3) { top: 14px; }
+
+        .hamburger-icon.active span:nth-child(1) {
+            top: 7px;
+            transform: rotate(135deg);
+        }
+
+        .hamburger-icon.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-icon.active span:nth-child(3) {
+            top: 7px;
+            transform: rotate(-135deg);
+        }
+
         .mobile-menu {
             display: none;
             padding: 20px 0;
             border-top: 1px solid rgba(0, 255, 65, 0.1);
+            max-height: calc(100vh - 64px);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .mobile-menu.active { display: block; }
@@ -696,8 +735,10 @@
                 <a href="#contact" class="nav-link">CONTACT</a>
             </nav>
 
-            <button class="mobile-menu-btn text-white text-2xl" onclick="toggleMenu()" aria-label="Ouvrir le menu" id="mobileMenuBtn">
-                <i class="fas fa-bars" id="mobileMenuIcon"></i>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Ouvrir le menu" id="mobileMenuBtn">
+                <span class="hamburger-icon" id="mobileMenuIcon">
+                    <span></span><span></span><span></span>
+                </span>
             </button>
         </div>
 
@@ -1251,15 +1292,13 @@
         function toggleMenu() {
             mobileMenu.classList.toggle('active');
             const isOpen = mobileMenu.classList.contains('active');
-            mobileMenuIcon.classList.toggle('fa-bars', !isOpen);
-            mobileMenuIcon.classList.toggle('fa-times', isOpen);
+            mobileMenuIcon.classList.toggle('active', isOpen);
             mobileMenuBtn.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
         }
 
         function closeMenu() {
             mobileMenu.classList.remove('active');
-            mobileMenuIcon.classList.remove('fa-times');
-            mobileMenuIcon.classList.add('fa-bars');
+            mobileMenuIcon.classList.remove('active');
             mobileMenuBtn.setAttribute('aria-label', 'Ouvrir le menu');
         }
 
