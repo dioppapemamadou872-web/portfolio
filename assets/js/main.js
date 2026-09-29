@@ -189,11 +189,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const typewriterText = document.getElementById('typewriter-text');
   if (typewriterText) {
     const phrases = [
-      'Étudiant en Cybersécurité & Réseaux',
-      'Futur Administrateur Sécurité & Systèmes',
-      'Passionné par l’Audit & la Défense Réseau',
+      'Développeur Web & Créateur de DeukuWaay',
+      'Spécialiste Cybersécurité & Réseaux',
+      'Architectures Cisco & Protocoles Sécurisés',
       'Certifié CCNA & IA Force-N',
-      'En recherche active d’un stage'
+      'Concepteur de Solutions Numériques'
     ];
 
     let phraseIdx = 0;
@@ -235,18 +235,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const commandResponses = {
     whoami: `<p class="term-output">👤 <strong>Pape Mamadou Diop</strong><br>
-Étudiant en 1ère année de Licence Cybersécurité (cycle combiné BTS / Licence) à <strong>Groupe ISI (Dakar)</strong>.<br>
-Passionné par la sécurisation des architectures réseaux, l'investigation et le développement web.</p>`,
+Développeur Web & Spécialiste Cybersécurité et Réseaux à <strong>Groupe ISI (Dakar)</strong>.<br>
+Concepteur de plateformes web à fort impact (<strong>DeukuWaay</strong>, <strong>AfriTalent</strong>, <strong>AfriConnect</strong>) et passionné de sécurité réseau.</p>`,
     
     skills: `<p class="term-output">⚡ <strong>Compétences clés :</strong><br>
-▸ <em>Réseaux & Sécurité :</em> Cisco IOS, VLSM, Topologies, Kali Linux, OSINT, Wireshark, Nmap<br>
-▸ <em>Développement :</em> Langage C, HTML5/CSS3, JavaScript, SQL/Bases de données, WordPress<br>
-▸ <em>Multimédia :</em> Photoshop, Sertissage câblage RJ45</p>`,
+▸ <em>Développement Web :</em> HTML5/CSS3, JavaScript ES6+, Bootstrap, WordPress, UI/UX<br>
+▸ <em>Réseaux & Sécurité :</em> Cisco IOS, VLSM, VLANs, Wireshark, Nmap, Kali Linux, OSINT<br>
+▸ <em>Systèmes & Données :</em> Langage C, SQL/MySQL, Câblage RJ45, Photoshop</p>`,
 
-    experience: `<p class="term-output">💼 <strong>Expérience en entreprise :</strong><br>
-▸ <em>Groupe ADAMARIE TGI</em> (Dakar) — Mars à Avril 2025<br>
-Rôle : Stagiaire en Maintenance Informatique & Multimédia<br>
-Missions : Câblage & sertissage RJ45, conception site web WordPress, réalisations infographiques Photoshop.</p>`,
+    experience: `<p class="term-output">💼 <strong>Expérience & Projets :</strong><br>
+▸ <em>DeukuWaay :</em> Plateforme immobilière et de recherche de logements à Dakar.<br>
+▸ <em>AfriTalent :</em> Marketplace tech connectant les freelances africains aux entreprises.<br>
+▸ <em>Groupe ADAMARIE TGI :</em> Maintenance informatique, câblage réseau RJ45 & CMS WordPress.</p>`,
 
     certs: `<p class="term-output">📜 <strong>Certifications & Accréditations :</strong><br>
 ▸ Cisco Networking Academy — CCNA : Présentation des réseaux (Groupe ISI, 2026)<br>
