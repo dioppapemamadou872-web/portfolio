@@ -365,14 +365,14 @@ header.scrolled {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
 }
 
 .brand-badge {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
   background: var(--bg-card);
   border: 1px solid var(--accent-green);
   display: flex;
@@ -381,50 +381,22 @@ header.scrolled {
   color: var(--accent-green);
   font-family: var(--font-tech);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   box-shadow: 0 0 15px rgba(0, 255, 102, 0.2);
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
 }
 
 .brand-name {
   font-family: var(--font-tech);
   color: var(--text-white);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.brand-status {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--accent-green);
-}
-
-.status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent-green);
-  box-shadow: 0 0 10px var(--accent-green);
-  animation: pulse-dot 2s infinite;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
+  letter-spacing: 0.5px;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   list-style: none;
 }
 
@@ -432,17 +404,18 @@ header.scrolled {
   color: var(--text-secondary);
   text-decoration: none;
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   font-weight: 500;
-  padding: 8px 14px;
-  border-radius: 8px;
+  padding: 8px 18px;
+  border-radius: 20px;
   transition: var(--transition-fast);
   position: relative;
 }
 
 .nav-link:hover, .nav-link.active {
   color: var(--accent-green);
-  background: var(--accent-green-dim);
+  background: rgba(0, 255, 102, 0.08);
+}
 }
 
 .nav-cta {
